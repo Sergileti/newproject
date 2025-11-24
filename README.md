@@ -1,1 +1,1 @@
-serge est indien.
+serge est un indien noir.
