@@ -1,1 +1,0 @@
-serge est un indien noir.
