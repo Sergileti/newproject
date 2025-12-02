@@ -1,0 +1,326 @@
+/* ======================================== VARIABLES CSS ================================= */
+:root {
+  /*======== Mode Clair ============*/
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #2980b9;
+  --background-color: #f4f4f4;
+  --surface-color: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #7f8c8d;
+  --text-muted: #a0aec0;
+  --border-color: #bdc3c7;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --hover-light: #34495e;
+  --card-background: #ecf0f1;
+  
+  /* ===États======= */
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --error-color: #e74c3c;
+  
+  /* ====Typographie ========*/
+  --font-family: 'Arial', sans-serif;
+  --font-size-base: 1rem;
+  --line-height: 1.6;
+  --border-radius: 8px;
+  
+  /* ===Espacements======== */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}
+
+/* ===== THÈME SOMBRE ========================================================================================================================= */
+body.dark-theme {
+  --primary-color: #204680;
+  --secondary-color: #63b3ed;
+  --accent-color: #4299e1;
+  --background-color: #1a1a1a;
+  --surface-color: #2d3748;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0aec0;
+  --text-muted: #718096;
+  --border-color: #4a5568;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --hover-light: #30363d;
+  --card-background: #4a5568;
+}
+
+/* ======= STYLES DE BASE ================================================================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  color: var(--text-primary);
+  background-color: var(--background-color);
+}
+
+/* ===== EN-TÊTE =============================================================================================================== */
+header {
+  background: var(--primary-color);
+  color: white;
+  padding: var(--spacing-sm) 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+  text-align: center;
+  margin-bottom: var(--spacing-xs);
+  color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background: var(--hover-light);
+}
+
+/* ===== BOUTON THÈME ============================================================================================= */
+#themeToggle {
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+#themeToggle:hover {
+  background: var(--accent-color);
+  transform: scale(1.05);
+}
+
+/* ===== SECTION GALERIE ==---=========================================================================== */
+.galerie-main {
+  margin-top: 100px;
+  padding: var(--spacing-lg);
+}
+
+.galerie-titre {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  color: var(--primary-color);
+  font-size: 2.5rem;
+}
+
+/* Conteneur de la galerie ----====================================================================================*/
+.galerie-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+}
+
+/* Image de la galerie***** *************************************************************/
+.image-galerie {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid var(--border-color);
+}
+
+.image-galerie:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+/* Indicateur de chargement ******************************************************************/
+.chargement-indicateur {
+  text-align: center;
+  padding: var(--spacing-xl);
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  background: var(--surface-color);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-lg) auto;
+  max-width: 400px;
+  border: 2px dashed var(--border-color);
+}
+
+.cache {
+  display: none;
+}
+
+/* Animation de chargement */
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.chargement-indicateur:not(.cache) {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .galerie-main {
+    margin-top: 140px;
+    padding: var(--spacing-sm);
+  }
+  
+  .galerie-titre {
+    font-size: 2rem;
+  }
+  
+  .galerie-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+  }
+  
+  .image-galerie {
+    height: 180px;
+  }
+  
+  nav {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  #themeToggle {
+    margin-top: var(--spacing-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .galerie-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .image-galerie {
+    height: 200px;
+  }
+  
+  .chargement-indicateur {
+    padding: var(--spacing-lg);
+    font-size: 1.1rem;
+  }
+}
+
+/* Ajout des styles spécifiques à la galerie */
+
+.galerie-main {
+    margin-top: 120px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.galerie-titre {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+.galerie-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.image-galerie {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    border: 2px solid var(--border-color);
+}
+
+.image-galerie:hover {
+    transform: scale(1.05);
+}
+
+.chargement-indicateur {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    background: var(--surface-color);
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 300px;
+    border: 2px dashed var(--border-color);
+}
+
+.cache {
+    display: none;
+}
+
+/* Animation de pulsation */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.chargement-indicateur:not(.cache) {
+    animation: pulse 1.5s infinite;
+}
+
+
+/* Styles pour le drag & drop */
+.image-galerie[draggable="true"] {
+    cursor: grab;
+}
+
+.image-galerie[draggable="true"]:active {
+    cursor: grabbing;
+}
+
+/* Effet visuel pendant le drag */
+.image-galerie.en-deplacement {
+    opacity: 0.5;
+    transform: scale(0.95);
+}
+
+/* Zone de drop potentielle */
+.image-galerie.zone-drop {
+    border: 3px dashed var(--secondary-color);
+    background-color: var(--card-background);
+}
+
+/* Effet de survol pour indiquer où on peut déposer */
+.image-galerie.survol-drop {
+    border: 3px solid var(--accent-color);
+    transform: scale(1.02);
+}
+
+/* Animation fluide pour les réorganisations */
+.galerie-container {
+    transition: all 0.3s ease;
+}

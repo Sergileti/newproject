@@ -1,10 +1,71 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Test</title>
-    </head>
-    <body>
-     <h2>BYAYAY</h2>
-     <script type="text/javascript" src="index.js"></script>
-    </body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="styleclair.css">
+</head>
+<body>
+    <!-- La Tete-->
+    <header>
+        <h1>Mon Portfolio</h1>
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#projets">Projets</a>
+            <a href="#contact">Contact</a>
+            <a href="PageGalerie.html">Galerie</a>
+            <button id="themeToggle">Changer de thème</button>
+        </nav>
+    </header>
+
+    <!-- La Section principale -->
+    <main>
+        <!-- Accueil -->
+        <section id="accueil">
+            <h2>Bonjour, Je suis Serge</h2>
+            <p>Développeur web passionné</p>
+            <img src="/HD Restoratioeeen.png" alt="Ma photo">
+        </section>
+
+        <!-- Projets -->
+        <section id="projets">
+            <h2>Mes Projets</h2>
+            
+            <div>
+                <h3>Site E-commerce</h3>
+                <p>Un site de vente en ligne moderne</p>
+                <p>Technos: HTML, CSS, JavaScript</p>
+            </div>
+
+            <div>
+                <h3>Application Météo</h3>
+                <p>App météo avec API</p>
+                <p>Technos: Python</p>
+            </div>
+
+            <div>
+                <h3>Blog Personnel</h3>
+                <p>Blog avec système de commentaires</p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Contactez-moi</h2>
+            <form>
+                <input type="text" placeholder="Votre nom" required>
+                <input type="email" placeholder="Votre email" required>
+                <textarea placeholder="Votre message" rows="4"></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2025 Mon Portfolio. Tous droits réservés.</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
 </html>
